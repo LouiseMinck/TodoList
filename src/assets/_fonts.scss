@@ -1,0 +1,103 @@
+$min_width: 800px;
+$max_width: 1000px;
+
+// General
+
+h1 {
+  @include fluid-type($min_width, $max_width, 20px, 40px);
+  letter-spacing: 4px;
+  overflow-wrap: break-word;
+  font-weight: 900;
+}
+
+aside.date{
+  margin-top: 15px;
+  font-style: italic;
+  font-weight: bold;
+  color: $lightGray;
+}
+
+// Navbar
+#nav a{
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  &.listing{
+    color: black;
+  }
+  &:hover {
+    letter-spacing: 5px;
+  }
+  transition: 0.2s;
+}
+.router-link-active {
+  border-left: 5px royalblue solid;
+  padding-left: 15px;
+}
+
+// List
+
+li {
+  list-style: none;
+  p {
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 2px;
+    &.checked{
+      color: $lightGray;
+      text-decoration: line-through;
+      letter-spacing: 5px;
+      transition: 0.5s;
+    }
+  }
+}
+
+// Buttons
+button {
+  background: none;
+  border: none;
+  padding: 7px 12px;
+  cursor: pointer;
+  &:hover{
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+  transition: 0.2s;
+}
+.removeBtn{
+  background-color: $red;
+  color: white;
+  &:hover{
+    letter-spacing: 5px;
+  }
+}
+.addBtn{
+  background-color: $blue;
+  color: white
+}
+
+@media screen and (max-width: 640px) {
+  #addList{
+    padding: 5px;
+    max-height: 25px;
+    &:hover {
+      letter-spacing: 2px;
+      background-color: white;
+    }
+  }
+}
+
+#addList{
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: royalblue;
+  cursor: pointer;
+  padding-left: 0;
+  &:hover {
+    border-left: 5px royalblue solid;
+    background-color: lighten(royalblue, 35%);
+    letter-spacing: 5px;
+    padding-left: 7px;
+  }
+  transition: 0.2s;
+}

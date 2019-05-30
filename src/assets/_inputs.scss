@@ -1,0 +1,84 @@
+// Inputs & Label
+label {
+  display: flex;
+  flex-direction: column;
+  color: $darkGray;
+  letter-spacing: 2px;
+  font-weight: bold;
+  width: auto;
+  input {
+    margin-top: 15px;
+  }
+}
+input {
+  border: none;
+  &[type=text]{
+    border-bottom: 3px lightgray solid;
+    &.listName{
+      border:none;
+      font-size: 1.7em;
+      font-weight: bold;
+      font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      &:focus{
+        padding-bottom: 5px;
+        border-bottom: 3px $lightGray solid;
+        color: $darkGray;
+      }
+    }
+  }
+  &[type=number]{
+    margin: 0;
+    width: 70px;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border-left: 1px $lightGray solid;
+    border-right: 1px $lightGray solid;
+
+    font-size: 12px;
+    color: $darkGray;
+    font-weight: bold;
+
+    &::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+      opacity: 1;
+      background-color: white;
+    }
+  }
+  &:focus{
+    outline-width: 0;
+  }
+  transition: 0.2s;
+}
+
+input[type=checkbox]{
+  margin-top: 0;
+  margin-right: 10px;
+}
+.checkProduct:after{
+  content: '\00D7';
+  display: block;
+  background: $lightGray;
+  background-image: url('https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-21-32.png');
+  pointer-events: none;
+  font-size: 13px;
+  height: 13px;
+  width: 13px;
+  color: transparent;
+  transition: .25s all ease-in-out;
+  border-radius: 3px;
+  line-height: 13px;
+  background-position: 0 13px;
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+}
+.checkProduct:checked:after {
+  background-color: $lightBlue;
+  background-position: 0 0;
+}
+.checkProduct:hover:after{
+  border-color: $blue;
+}

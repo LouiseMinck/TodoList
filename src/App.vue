@@ -1,29 +1,49 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <div>
+        <h1>Shopping List.</h1>
+        <div class="space_M"></div>
+        <button id="addList" @click="addList">New list +</button>
+      </div>
+      <div id="chooseList">
+        <router-link
+          v-for="(list, i) in lists"
+          :key="i"
+          :to="{ name: 'list', params: { id: list.id } }"
+          class="listing"
+          >{{ list.name }}</router-link
+        >
+      </div>
     </div>
-    <router-view />
+    <div id="main">
+      <router-view />
+    </div>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  mounted() {
+    if (localStorage.Lists) {
+      this.$store.commit("lists/SET_LISTS", JSON.parse(localStorage.Lists));
+    }
+  },
+  computed: {
+    lists() {
+      return this.$store.getters["lists/lists"];
+    }
+  },
+  methods: {
+    addList() {
+      this.$store.dispatch("lists/addList", "Your list");
     }
   }
-}
+});
+</script>
+
+<style lang="scss">
+@import "assets/main.scss";
 </style>

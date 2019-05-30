@@ -1,0 +1,11 @@
+// Size
+$navWidth: 25%;
+$mainWidth: calc(100% - #{$navWidth});
+$addProductHeight: 100px;
+
+// Colors
+$blue: royalblue;
+$lightGray: #dbdbdb;
+$darkGray: #787878;
+$lightBlue: lighten($blue, 20%);
+$red: #c42741;
